@@ -8,6 +8,10 @@ This extension solves that.  Put it early in your boot sequence (by putting a fe
 
 Note that it doesn't check whether the Mac can actually do 32-bit addressing before fiddling; so please make sure it can.  That said, it will behave properly with MODE32 if you rely on that for 32-bit addressing on Macs without 32-bit clean ROMs.
 
+## How to build
+
+I built this using CodeWarrior Pro 4.  Other versions will probably work.  It has no external dependencies.  Resource and project files are inside the .sit file.  It would probably be pretty straightforward to get it to work under THINK C, too, aside from the assembler (though the above linked page has pre-assembled routines that would be a good starting point).
+
 ## A note on licensing
 
 It seems kind of absurd to explicitly license something that's basically three pieces of sample code bolted together.  My bits are BSD-licensed, but the rest is sample code that has been released with unclear licensing terms.
