@@ -10,7 +10,13 @@ Note that it doesn't check whether the Mac can actually do 32-bit addressing bef
 
 ## How to build
 
-I built this using CodeWarrior Pro 4.  Other versions will probably work.  It has no external dependencies.  Resource and project files are inside the .sit file.  It would probably be pretty straightforward to get it to work under THINK C, too, aside from the assembler (though the above linked page has pre-assembled routines that would be a good starting point).
+I built this using CodeWarrior Pro 4.  Other versions will probably work.  It has no external dependencies.  It would probably be pretty straightforward to get it to work under THINK C, too, aside from the assembler (though the above linked page has pre-assembled routines that would be a good starting point).
+
+The resource file is macbinary encoded.  If you're unwrapping on OS X you can use the scripts/unpack-resources to generate a resource file from the macbinary, and scripts/pack-resources to turn it back.
+
+You may need to manually set the file types of the .c and .h files to 'TEXT'.  Something like Drop•Attribute will do that for you.
+
+If you get a "object resource cannot be found" error while building, it's because I forgot to 'Remove Object Code' before uploading a change.  Go into the Project menu in CW, then choose 'Remove Object Code', then do a 'Make' again.  Then put an issue in and complain at me.
 
 ## A note on licensing
 
