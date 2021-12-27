@@ -2,3 +2,4 @@
 Force32
 *.SYM
 *.rsrc
+/Force32 Data/
