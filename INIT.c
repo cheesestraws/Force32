@@ -2,10 +2,12 @@
 #include "SetupA4.h"
 #include "ShowInitIcon.h"
 #include "xpram.h"
+#include <Gestalt.h>
 
 const int kInitIcon = 128;
 const int kYesIcon = 129;
 const int kNoIcon = 130;
+const int kBadMachineIcon = 131;
 
 // weAre32Bit reads the 32-bit addressing status out of the xPRAM of the machine
 // and returns true if we're currently set up for 32-bit addressing or false if not.
@@ -43,12 +45,20 @@ asm void restart() {
 void main(void)
 {
 	long	oldA4;	
+	long	processorType;
+	
 	oldA4 = SetCurrentA4();
 	RememberA4();
 	
 	ShowInitIcon(kInitIcon, false);
-	
-	if (weAre32Bit()) {
+
+	// First, check whether we're a 68000: in this case, bail out early, because
+	// we're doomed regardless.
+	Gestalt('proc', &processorType);
+
+	if (processorType < 3) { // 3 -> 68020, confusingly
+		ShowInitIcon(kBadMachineIcon, true);
+	} else if (weAre32Bit()) {
 		ShowInitIcon(kYesIcon, true);
 	} else {
 		ShowInitIcon(kNoIcon, true);
