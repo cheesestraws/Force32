@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for i in *.rsrc.bin; do
+	FN=`echo $i | sed 's/\.bin$//'`
+	rm $FN 2>/dev/null
+	macbinary decode $i
+done
