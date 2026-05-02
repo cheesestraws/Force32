@@ -1,3 +1,7 @@
+# Archived
+
+As part of my move away from using github, and since I do not anticipate any further work on this, this repository has been made read-only.  I encourage people who want a copy of the code to take one, as I do not guarantee its continued availability here or through any other channel I control.
+
 # Force32
 
 If you want to use lots of memory on a classic Mac, you need to turn on 32-bit addressing (if the machine supports it).  However, this setting is stored in the battery-backed xPRAM.  A lot of us run our old Macs without PRAM batteries, simply in the interests of not finding battery leakage all over the place one morning.
